@@ -8,6 +8,8 @@ import { Framer } from '@/lib/framer';
 
 import FollowingPage from './following';
 import ForYouPage from './for-you';
+import SearchBar from '../Search/SearchBar';
+
 
 const HomeFeed = () => {
   const scrollDirection = useScrollingEffect();
@@ -34,9 +36,20 @@ const HomeFeed = () => {
   return (
     <div className="flex flex-col flex-1">
       <div
-        className={`flex flex-col border-b border-zinc-700 sticky inset-x-0 pt-2 top-0 z-30 w-full transition-all backdrop-blur-xl  ${headerClass} md:translate-y-0`}
+        className={`flex flex-col border-b border-zinc-700 sticky inset-x-0 pt-2 top-0 z-30 w-full transition-all backdrop-blur-xl md:translate-y-0`}
       >
-        <span className=" flex px-4 font-bold text-2xl">Home</span>
+        <div className={'w-full flex flex-col justify-between items-center mt-4'}>
+                <div className={'w-full flex flex-row justify-between items-center mt-4'}>
+                     <div className=' flex items-center justify-center'>
+                          <span className="font-epilogue font-bold  text-[35px] leading-[38px] text-white  ml-6 ">Home</span>
+                      </div>
+                      <div className='flex justify-center items-center mr-2'>
+                       <div className="w-auto flex justify-center items-center p-2 mx-6 rounded-[50px] bg-[#8c6dfd] ">
+                              <span className="font-epilogue font-bold text-[13px] text-white text-center mx-2 my-1">Connect Wallet</span>
+                        </div>
+                      </div>
+                </div>    
+       </div>
 
         <div className="flex flex-row w-full items-center justify-around mt-4">
           <Framer.Tabs {...framer.tabProps} />

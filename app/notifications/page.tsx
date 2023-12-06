@@ -8,6 +8,7 @@ import {
   Switch,Stack, TextField, InputAdornment,
 } from '@mui/material' 
 import { MuiRadioButton } from '@/components/MuiFormField';
+import CustomizedInputsStyled from '@/components/CustomTextFiels';
 
  
  
@@ -80,12 +81,21 @@ const EventForm: React.FC = () => {
   return (
     <div className="bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {/* {isLoading && <Loader />} */}
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
+      <div className={'fixed top-0 w-full flex flex-row justify-between items-center rounded-[10px] gap-2 mx-4 py-3 z-10 bg-zinc-100 dark:bg-[#1c1c24] border-t dark:border-zinc-800 border-zinc-200 shadow-lg sm:hidden'}>
+        <div className=' flex flex-row items-center justify-center ml-4 gap-2'>
+        <Icon icon="mdi:arrow-back-circle" width="25px"/>
         <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white">Create a Event</h1>
       </div>
+                      <div className='flex flex-row justify-center items-center'>
+                       <div className="w-auto flex justify-center items-center p-2 h-25 mx-6 rounded-[50px] bg-[#8c6dfd] ">
+                              <Icon icon="teenyicons:play-solid" />
+                              <h4 className="font-epilogue font-bold text-[10px] text-white text-center mx-2 h-4 "> See Preview</h4>
+                        </div>
+                      </div>
+     </div>
 
       <form onSubmit={handleSubmit} className="w-full mt-[65px] flex flex-col gap-[30px]">
-      <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+      <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px] mt-10">
             <label htmlFor="upload" className="cursor-pointer">
                  <input
                  type="file"
@@ -96,30 +106,37 @@ const EventForm: React.FC = () => {
                   />
               <div className="flex items-center">
                    <Icon icon="akar-icons:image" className="w-[40px] h-[40px] object-contain" />
-                   <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">
+                   <div className='flex flex-col gap-2 text-center'>
+                   <h4 className="font-epilogue font-bold text-[20px] text-white ml-[20px]  ">
                      Add a cover image for this event
-                    <h4 className="font-epilogue font-bold text-[10px] text-white ml-[10px]">340x120px PNG</h4>
                   </h4>
+                  <h4 className="font-epilogue font-bold text-[10px] text-white ml-[10px]  ">340x120px PNG</h4>
+                </div>
               </div>
             </label>
          </div>
+         
 
-         <div className="flex justify-start items-center p-4 bg-[#8c6dfd] h-[60px] w-[75px] rounded-[10px]">
+         <div className="w-full flex justify-start items-center p-3 h-20 rounded-[10px]">
                   
-                  <div className="flex items-center">
-                     <Icon icon="akar-icons:image" className="w-[60px] h-[40px] object-contain justify-center" />
+                  <div className="flex items-center ">
+                     <div className="w-auto flex justify-start items-center p-4 h-25 rounded-[10px] bg-[#8c6dfd] ml-[-10px]">
+                     <Icon icon="akar-icons:image" className="w-[60px] h-[40px] object-contain" />
+                     </div>
                
-                        <div className="flex justify-center items-center mt-[10px] p-4">
-                                <h4 className="flex justify-between font-epilogue font-bold text-[15px] text-white ml-[20px]">
+                         <div className="flex-col text-center ml-[20px] mt-[10px] justify-between  ">
+                                <h4 className="flex font-epilogue font-bold text-[15px] text-white">
                                  Upload Logo                                   
                                  </h4>       
-                                   
-                        </div>
-                            <h4 className="font-epilogue font-bold text-[10px] text-white ml-[10px] mt-[30px]">512x512px PNG</h4>
+                                 <h4 className="flex font-epilogue font-bold text-[10px] text-white ">512x512px PNG</h4>     
+                            </div>
+                            
                         <label htmlFor="upload" className="cursor-pointer">
-                        <div className="flex justify-end items-center p-3 bg-[#8c6dfd] h-[30px] w-[75px] rounded-[50px] gap-6">
-                              <h4 className="flex justify-center font-epilogue font-bold text-[10px] text-white ml-[10px] mx-[10px]"> Upload</h4>
-                               </div>
+                        <div className="flex items-center ml-[40px] mt-[20x] ">
+                        <div className="w-auto flex justify-start items-center p-2 h-25 rounded-[50px] bg-[#8c6dfd]   ">
+                              <h4 className="font-epilogue font-bold text-[10px] text-white text-center mx-3 h-3 "> Upload</h4>
+                        </div>
+                        </div>
                         </label>  
                             
                     </div>
@@ -130,10 +147,10 @@ const EventForm: React.FC = () => {
           <FormField 
             labelName="Description"
             placeholder="Enter Event Description"
-                                              
+            inputType="text"                                  
             isTextArea
             value={description}
-            handleChange={(e) => handleFormFieldChange('description', e)} inputType={''}          />  
+            handleChange={(e) => handleFormFieldChange('description', e)}         />  
 
           <div className="flex flex-wrap gap-[40px] text-[35px]">
           
@@ -205,6 +222,39 @@ const EventForm: React.FC = () => {
           value={""}
           handleChange={(e) => handleFormFieldChange('image', e)} isTextArea={false}          />
 
+
+          <div className="flex flex-col justify-center items-center p-[56px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
+            <label htmlFor="upload" className="cursor-pointer">
+                 <input
+                 type="file"
+                 id="upload"
+                 accept="image/png"
+                 className="hidden"
+                 onChange={handleCoverImageChange} // handleFileUpload is a function to handle the uploaded file
+                  />
+              <div className="flex items-center flex-col gap-3">
+                   <Icon icon="akar-icons:image" className="w-[60px] h-[40px] object-contain" />
+                   <h4 className="font-epilogue font-bold text-[20px] text-white ml-[20px] text-center">
+                     Upload Your Ticket nft for your event
+                  </h4> 
+                  <h4 className="font-epilogue font-bold text-[10px] text-white ml-[15px]  justify-center">340x280px PNG</h4>        
+              </div>
+                
+            </label>
+         </div>
+
+
+          
+          <TextField id="standard-basic" label="Name" variant="standard" />
+
+          <FormField 
+            labelName="Ticket Benifits"
+            placeholder="Enter Ticket Benifits"
+            inputType="text"                                  
+            isTextArea
+            value={description}
+            handleChange={(e) => handleFormFieldChange('description', e)}         />  
+
           <div>
             <button onClick={()=>setShow1(!show1)}>
                    <Box>
@@ -261,12 +311,28 @@ const EventForm: React.FC = () => {
             }
               
           </div>
-           
+          
+          <FormField 
+            labelName="Ticket Benifits"
+            placeholder="Enter Ticket Benifits"
+            inputType="text"                                  
+            isTextArea
+            value={description}
+            handleChange={(e) => handleFormFieldChange('description', e)}         />  
 
-          <div className="flex justify-center items-center mt-[40px]">
+           <label className="flex-1 w-full flex flex-col">
+             <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Ticket Types</span>
+             <CustomizedInputsStyled 
+             label={'hello'} 
+             placeholder={'lo'}/>
+           </label>
+
+            
+ 
+          <div className="flex justify-center items-center mb-[60px]">
             <CustomButton 
             btnType="submit"
-            title="Submit new campaign"
+            title="Continue"
             styles="bg-[#1dc071]" handleClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
               throw new Error('Function not implemented.');
             } }            />

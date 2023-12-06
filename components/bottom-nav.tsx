@@ -21,41 +21,42 @@ const BottomNav = () => {
 
   return (
     <div
-      className={`fixed bottom-0 w-full py-4 z-10 bg-zinc-100 dark:bg-zinc-950 border-t dark:border-zinc-800 border-zinc-200 shadow-lg sm:hidden ${navClass}`}
+      className={`fixed bottom-0 w-full py-1 z-10 bg-zinc-100 dark:bg-zinc-950 border-t dark:border-zinc-800 border-zinc-200 shadow-lg sm:hidden ${navClass}`}
     >
       <div className="flex flex-row justify-around items-center bg-transparent w-full">
-        <Link href="/" className="flex items-center relative">
+        <Link href="/" className="flex flex-col items-center relative">
+          
           {isHomeActive ? (
-            <Icon icon="mingcute:home-5-fill" width="32" height="32" />
+            <><Icon icon="teenyicons:home-solid" width="32" height="32" /><span className="">Home</span></>
           ) : (
-            <Icon icon="mingcute:home-5-line" width="32" height="32" />
+            <Icon icon="teenyicons:home-outline" width="32" height="32" />
           )}
-          {/* <span className="h-2 w-2 rounded-full bg-sky-500 absolute -top-0.5 right-[3px]"></span> */}
+          
         </Link>
-        <Link href="/explore" className="flex items-center">
+        <Link href="/explore" className="flex flex-col items-center">
           {isExploreActive ? (
-            <Icon
-              icon="uil:search"
+            <><Icon
+              icon="lets-icons:ticket-use-duotone"
               width="32"
               height="32"
-              className="stroke-current stroke-5"
-            />
+              className="stroke-current stroke-5" /><span className="">Ticket</span></>
           ) : (
-            <Icon icon="uil:search" width="32" height="32" />
+            <Icon icon="lets-icons:ticket-use-light" width="32" height="32" />
           )}
+          
         </Link>
-        <Link href="/notifications" className="flex items-center">
+        <Link href="/notifications" className="flex flex-col items-center">
           {isNotificationsActive ? (
-            <Icon icon="mingcute:notification-fill" width="32" height="32" />
+            <><Icon icon="heroicons:sparkles-solid" width="32" height="32" /><span className="">Event</span></>
           ) : (
-            <Icon icon="mingcute:notification-line" width="32" height="32" />
+            <Icon icon="heroicons:sparkles" width="32" height="32" />
           )}
         </Link>
-        <Link href="/messages" className="flex items-center">
+        <Link href="/messages" className="flex flex-col items-center">
           {isMessagesActive ? (
-            <Icon icon="ic:baseline-email" width="32" height="32" />
+            <><Icon icon="iconamoon:profile-fill" width="32" height="32" /><span className="">Account</span></>
           ) : (
-            <Icon icon="ic:outline-email" width="32" height="32" />
+            <Icon icon="iconamoon:profile-bold" width="32" height="32" />
           )}
         </Link>
       </div>

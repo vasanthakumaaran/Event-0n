@@ -1,3 +1,4 @@
+import BottomNav from '@/components/bottom-nav';
 import HomeFeed from '@/components/home/home-feed';
 
 export default function Home() {
